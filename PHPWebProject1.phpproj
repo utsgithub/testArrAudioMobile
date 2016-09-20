@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,6 +8,16 @@
     </RootNamespace>
     <OutputType>Library</OutputType>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <SaveServerSettingsInUserFile>false</SaveServerSettingsInUserFile>
+    <Runtime>PHP</Runtime>
+    <RuntimeVersion>5.6</RuntimeVersion>
+    <EnvName>Custom</EnvName>
+    <PHPDevHostName>localhost</PHPDevHostName>
+    <PHPDevAutoPort>true</PHPDevAutoPort>
+    <CustomServerUrl>http://127.0.0.1/output/testArrAudioMobile/</CustomServerUrl>
+    <CustomXdebugPort>9000</CustomXdebugPort>
+    <PublishEvent>None</PublishEvent>
+    <DebugMappingMethod>Automatic</DebugMappingMethod>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -53,7 +64,7 @@
     <Compile Include="javascript\senJSON.js" />
     <Compile Include="javascript\test.js" />
     <Compile Include="javascript\test.txt" />
-    <Compile Include="javascript\test_arr.js" />
+    <Compile Include="javascript\test_arrAudioMobile.js" />
     <Compile Include="javascript\test_audio.txt" />
     <Compile Include="javascript\test_cn.js" />
     <Compile Include="javascript\test_pactice.js" />
@@ -66,15 +77,6 @@
     <Compile Include="jump.html" />
     <Compile Include="ko.html" />
     <Compile Include="test.html" />
-    <Compile Include="testArr.html" />
-    <Compile Include="testAudio.html" />
-    <Compile Include="testCn.html" />
-    <Compile Include="testCn2.html" />
-    <Compile Include="testSelect.html" />
-    <Compile Include="testVoice.html" />
-    <Compile Include="test_practice.html" />
-    <Compile Include="test_sen.html" />
-    <Compile Include="Untitled-1.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="3rd\bootstrap\css" />

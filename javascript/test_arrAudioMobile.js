@@ -177,6 +177,7 @@ $(function () {
     }
     getFirst = getValue("first");
     if (getFirst == 1) {
+        $(".container").hide();
         $(".f_text").val(getValue("title") + ": " + getValue("pageSize"));
         $('#myModal').modal('show');
     } else {
@@ -185,6 +186,7 @@ $(function () {
 
     $(".f_close").click(function () {
         $('#myModal').modal('hide');
+        $(".container").show();
         act();
     });
     //=====================================================================================================
@@ -211,7 +213,8 @@ $(function () {
             $("span.sp2").html(comments.length);//显示总数；
 
             $("lib.b").show();					//输入框显示		
-            $("textarea.b").val("");			//输入框清空		
+            $("textarea.b").val("");			//输入框清空	
+            $(".f_pre").html("");
             console.log("index=" + index);
             if (index > 0 && comments[index - 1]['subTitle'] != comments[index]['subTitle']) {
                 $(".f_pre").html(comments[index - 1]['subTitle'] + ":" + comments[index - 1]['subject']);
@@ -221,7 +224,7 @@ $(function () {
             if (q_en == "") {
                 q_en = q;
             }
-            btnQ = "Submit";
+
             if (c_audio == 1) {
                 s_audio = "";
                 //new edit 6/9/2013
@@ -298,7 +301,7 @@ $(function () {
             }
             $(".sen .en").html(comments[index]['en']);//句子问题区赋值
             $(".sen .cn").html(comments[index]['cn']);//句子答案区赋值
-            $(".btnQ").html(btnQ);
+            
             $(".e_act1").show();				//显示：act1元素；
 
             $("textarea.b")[0].focus();			//输入框焦点
@@ -375,10 +378,7 @@ $(function () {
         $("a.btn3").hide();
 
     }
-    $("a.btnCn").click(function () {
-        $(".sharewith .q").parent().show();
 
-    });
     $("a.btn1").click(function () {
         $(".f_slipt").hide();
         if ($("textarea.b").val().replace(/>/g, "&gt;").toLowerCase() == $(".a .a").html().toLowerCase()) {
@@ -581,6 +581,10 @@ $(function () {
             $(".f_btnNo" + (i + 1)).show();
         }
     }
+    //Help to focus on Textarea; use for mobile propuse
+    $(".f_focus").click(function () {
+        $("textarea.b")[0].focus();
+    });
 
 })
 
