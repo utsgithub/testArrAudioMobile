@@ -301,7 +301,7 @@ $(function () {
             }
             $(".sen .en").html(comments[index]['en']);//句子问题区赋值
             $(".sen .cn").html(comments[index]['cn']);//句子答案区赋值
-            
+
             $(".e_act1").show();				//显示：act1元素；
 
             $("textarea.b")[0].focus();			//输入框焦点
@@ -427,29 +427,6 @@ $(function () {
         $(".f_slipt").hide();
     }
 
-    //function sen1(a) {
-    //    for (x in senJSON) {
-    //        if (senJSON[x].en != null) {
-    //            if (a.toLowerCase().indexOf(senJSON[x].en.toLowerCase()) >= 0) {
-    //            	$(".f_en").html(a.replace(senJSON[x].en,'<span class="font_red">'+senJSON[x].en+'</span>'));
-    //                $(".f_cn").html(senJSON[x].cn);
-    //                break;
-    //            }
-    //        }
-    //    }
-    //}
-    function sen1(a) {
-        for (x in senJSON) {
-            if (senJSON[x].en != null) {
-                //if (a.toLowerCase().indexOf(senJSON[x].en.toLowerCase()) >= 0) {
-                if (senJSON[x].en.toLowerCase().indexOf(a.toLowerCase()) >= 0) {
-                    $(".f_en").html(senJSON[x].en.replace(a, '<span class="font_red">' + a + '</span>'));
-                    break;
-                }
-            }
-        }
-    }
-
     //计算总时间
     function MillisecondToDate(msd) {
         var time = parseFloat(msd) / 1000;
@@ -483,22 +460,6 @@ $(function () {
         return tempArray3 //返回最后得出的数组
     }
 
-    //打印数组
-    function print_array(arr) {
-        var t = 'array(\n';
-        for (var key in arr) {
-            if (typeof (arr[key]) == 'array' || typeof (arr[key]) == 'object') {
-                var t_tmp = key + ' = ' + print_array(arr[key]);
-                t += '\t' + t_tmp + '\n';
-            } else {
-                var t_tmp = key + ' = ' + arr[key];
-                t += '\t' + t_tmp + '\n';
-            }
-        }
-        t = t + ')';
-        return t;;
-    }
-
     function f_control_num(num, comments) {
         if (num > 0) {
             var comments2 = [];
@@ -521,66 +482,6 @@ $(function () {
         return index;
     }
 
-    function f_select(org_comments, s_num, f_chrome) {
-        var arrSelect = []; //定义select数组；
-        for (var i = 0,
-        len = org_comments.length; i < len; i++) { //取出当前指针的值。（同时取出与当前指正重复的值。）
-            if (org_comments[i]['subTitle'] != comments[index]['subTitle']) {
-                arrSelect.push(org_comments[i]);
-            }
-        }
-        arrSelect = randomOrder(arrSelect); //乱序数组
-
-        var arrSelect2 = []; //定时数组2
-        //select num
-        var s_num = s_num - 2;
-        for (i = 0; i <= s_num; i++) { //获得目标数组-1的新数组
-            arrSelect2.push(arrSelect[i]);
-        }
-        arrSelect2.push(comments[index]); //新数组添加当前指针的值。
-        arrSelect = randomOrder(arrSelect2); //乱序数组。
-        $(".f_btnSelect").hide();
-        for (i = 0; i <= s_num + 1; i++) {
-            $(".f_btnNo" + (i + 1)).html(arrSelect[i].subject); //赋值
-            $(".f_btnNo" + (i + 1)).attr("f_a", arrSelect[i].subTitle);
-            $(".f_btnNo" + (i + 1)).attr("f_id", arrSelect[i].id);
-            $(".f_btnNo" + (i + 1)).prepend("<span class=\"label label-warning none\">" + arrSelect[i].subTitle + "</span>&nbsp;");
-            if (f_chrome == 1) {
-                $(".f_btnNo" + (i + 1)).prepend("<span class='label' style='width:130px !important;'>[" + $(".f_btnNo" + (i + 1)).attr("id") + "]</span>&nbsp;");
-            }
-            $(".f_btnNo" + (i + 1)).show();
-        }
-    }
-    function f_select2(org_comments, s_num, f_chrome) {
-        var arrSelect = []; //定义select数组；
-        for (var i = 0,
-        len = org_comments.length; i < len; i++) { //取出当前指针的值。（同时取出与当前指正重复的值。）
-            if (org_comments[i]['subTitle'] != comments[index]['subTitle']) {
-                arrSelect.push(org_comments[i]);
-            }
-        }
-        arrSelect = randomOrder(arrSelect); //乱序数组
-
-        var arrSelect2 = []; //定时数组2
-        //select num
-        var s_num = s_num - 2;
-        for (i = 0; i <= s_num; i++) { //获得目标数组-1的新数组
-            arrSelect2.push(arrSelect[i]);
-        }
-        arrSelect2.push(comments[index]); //新数组添加当前指针的值。
-        arrSelect = randomOrder(arrSelect2); //乱序数组。
-        $(".f_btnSelect").hide();
-        for (i = 0; i <= s_num + 1; i++) {
-            $(".f_btnNo" + (i + 1)).html(arrSelect[i].subTitle); //赋值
-            $(".f_btnNo" + (i + 1)).attr("f_a", arrSelect[i].subject);
-            $(".f_btnNo" + (i + 1)).attr("f_id", arrSelect[i].id);
-            $(".f_btnNo" + (i + 1)).prepend("<span class=\"label label-warning none\">" + arrSelect[i].subject + "</span>&nbsp;");
-            if (f_chrome == 1) {
-                $(".f_btnNo" + (i + 1)).prepend("<span class='label' style='width:130px !important;'>[" + $(".f_btnNo" + (i + 1)).attr("id") + "]</span>&nbsp;");
-            }
-            $(".f_btnNo" + (i + 1)).show();
-        }
-    }
     //Help to focus on Textarea; use for mobile propuse
     $(".f_focus").click(function () {
         $("textarea.b")[0].focus();

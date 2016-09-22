@@ -4,8 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="3rd/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="3rd/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+    
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/extra.css" rel="stylesheet" type="text/css" />
+
     <script src="javascript/jquery.js" type="text/javascript"></script>
     <script src="javascript/knockout.js" type="text/javascript"></script>
     <script src="3rd/bootstrap/js/bootstrap.min.js"></script>
@@ -22,8 +24,6 @@
 <!-- 数据js -->
 
 <body class="secret">
-    <a class="none" href="file:///D:/wwwroot/output/testArrAudioMobile/index.html"></a>
-    <!-- 用于无音频文件 -->
     <div class="navbar navbar-top-leeke browser_navbar">
         <!--<div class="navbar navbar-fixed-bottom">-->
         <div class="navbar-inner">
@@ -44,8 +44,6 @@
     <div class="container" style="clear:both;">
         <div class="_zoom">
             <ul class="nav nav-tabs nav-stacked">
-                <!-- 问题_句2子 -->
-                <li class="sharewith e_element e_act2 e_act3"> <a class="sen"> </a> </li>
                 <!-- 问题_句子 -->
                 <li class="sharewith e_element"> <a class="q_en"> </a> </li>
                 <!-- 问题 -->
@@ -68,11 +66,17 @@
             </div>
         </div>
         <!-- -->
-        <div style="height:20px; overflow:hidden">
-            <table>
+        <style>
+            .f_preHeight {
+                height: 20px;
+                overflow: hidden;
+            }
+        </style>
+        <div style="">
+            <table class="f_preHeight size1of1">
                 <tr>
                     <td><span id="lenMax" class="label none"></span> <span id="lenChange" class="label"></span></td>
-                    <td><h4 class="f_pre" style="color:wheat"></h4></td>
+                    <td class="f_preHeight"><a class="f_pre_clike" href="javascript:void(0);"><h4 class="f_pre" style="color:wheat"></h4></a></td>
                 </tr>
             </table>
         </div>
@@ -83,10 +87,10 @@
             <div> <a class="btn2 updatebtn e_element btn btn-primary btn-large" href="javascript:void(0);">BTN2 Submit</a> </div>
             <div> <a class="btn3 updatebtn e_element e_act2 btn btn-primary btn-large">BTN3 Submit</a> </div>
         </div>
+        <!-- onClick="document.getElementById('player').currentTime = 0;document.getElementById('player').play()" -->
         <div class="full">
-            <a class="updatebtn e_element e_act1 e_act2 btn btn-success btn-large"
+            <a class="updatebtn e_element e_act1 e_act2 btn btn-success btn-large f_play"
                accesskey="\"
-               onClick="document.getElementById('player').currentTime = 0;document.getElementById('player').play()"
                href="javascript:void(0);">Play</a>
             <a class="btn btn-warning btn-large e_element f_focus e_act1 e_act2">Focus</a>
             <div class="mtl">
@@ -129,8 +133,22 @@
 </html>
 <a href="javascript:void(0);" accessKey="s"></a>
 <script>
+    //单击文本框直接全选；
     $("input.f_text:text").click(function () {
         $(this).select();
+    });
+
+    //自动将句号变成空格
+    $('#mainInput').keydown(function (e) {
+        if (e.key == ".") {
+            $(this).val($(this).val() + ' ');
+            return false;
+        }
+    });
+    $("a.f_play").click(function () {
+        audio = document.getElementById('player') //初始化音频路径
+        play(0, 1);
+        $("textarea.b")[0].focus();
     });
 </script>
 <script src="javascript/ko_jump.js"></script>

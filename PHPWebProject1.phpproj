@@ -62,14 +62,7 @@
     <Compile Include="javascript\knockout.js" />
     <Compile Include="javascript\ko_jump.js" />
     <Compile Include="javascript\senJSON.js" />
-    <Compile Include="javascript\test.js" />
-    <Compile Include="javascript\test.txt" />
     <Compile Include="javascript\test_arrAudioMobile.js" />
-    <Compile Include="javascript\test_audio.txt" />
-    <Compile Include="javascript\test_cn.js" />
-    <Compile Include="javascript\test_pactice.js" />
-    <Compile Include="javascript\test_select.js" />
-    <Compile Include="javascript\test_sen.txt" />
     <Compile Include="lbi\library.lbi" />
     <Compile Include="demo.html" />
     <Compile Include="index.html" />
